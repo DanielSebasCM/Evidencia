@@ -84,6 +84,7 @@ def draw():
 
 
 def tapCount():
+    """Count and show the number of taps"""
     global taps
     taps += 1
     print(taps)
