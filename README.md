@@ -128,4 +128,21 @@ writer.goto(185, 185)
 
 Using turtle and freegames a simple version of tick tack toe was implemented. Each player takes turns clicking on a square to place their icon on a square of the grid and the first player to complete three in a row wins. In this implementation there is no detection of winning or loosing states but the size of the player icons can be customized through a variable. The program will also prohibit players from placing a move in a square thats already occupied.
 
+Modifications:
 
+```
+def drawx(x, y):
+    """Draw X player."""
+    **diff = 133 - SIZE #Diferencia entre el tamaño de la cuadrícula y el icono
+    line(x+diff, y+diff, x + SIZE, y + SIZE)
+    line(x+diff, y + SIZE, x + SIZE, y+diff)**
+
+
+def drawo(x, y):
+    """Draw O player."""
+    **diff = 133 - SIZE**
+    up()
+    **goto(x + 67, y + diff//2 + 10)**
+    down()
+    **circle(SIZE//2 - 10)**
+ ```
