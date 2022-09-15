@@ -175,7 +175,7 @@ def change(x, y):
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
-writer.goto(160, 160)
+writer.goto(185, 185)
 writer.color('white')
 writer.write(state['score'])
 listen()
