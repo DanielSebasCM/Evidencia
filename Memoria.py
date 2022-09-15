@@ -55,6 +55,7 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        detectWin()
     tapCount()
 
 
@@ -90,6 +91,11 @@ def tapCount():
     print(taps)
 
 
+def detectWin():
+    if (not any(hide)):
+        print("Congratulations! \n all the tiles are open")
+
+
 shuffle(tiles)
 setup(420, 420, 370, 0)
 addshape(car)
@@ -97,4 +103,5 @@ hideturtle()
 tracer(False)
 onscreenclick(tap)
 draw()
+detectWin()
 done()
