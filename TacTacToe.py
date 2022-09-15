@@ -12,6 +12,7 @@ from turtle import *
 
 from freegames import line
 
+SIZE = 100
 
 def grid():
     """Draw tic-tac-toe grid."""
@@ -23,16 +24,18 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    diff = 133 - SIZE #Diferencia entre el tamaño de la cuadrícula y el icono
+    line(x+diff, y+diff, x + SIZE, y + SIZE)
+    line(x+diff, y + SIZE, x + SIZE, y+diff)
 
 
 def drawo(x, y):
     """Draw O player."""
+    diff = 133 - SIZE
     up()
-    goto(x + 67, y + 5)
+    goto(x + 67, y + diff//2 + 10)
     down()
-    circle(62)
+    circle(SIZE//2 - 10)
 
 
 def floor(value):
