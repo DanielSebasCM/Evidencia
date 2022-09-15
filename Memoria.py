@@ -92,6 +92,7 @@ def tapCount():
 
 
 def detectWin():
+    """Detect if all the tiles are uncovered"""
     if (not any(hide)):
         print("Congratulations! \n all the tiles are open")
 
