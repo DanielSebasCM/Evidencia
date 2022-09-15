@@ -1,16 +1,15 @@
 """Memory, puzzle game of number pairs.
-
 Exercises:
-
 1. Count and print how many taps occur.
 2. Decrease the number of tiles to a 4x4 grid.
 3. Detect when all tiles are revealed.
 4. Center single-digit tile.
 5. Use letters instead of tiles.
 """
-
-from random import *
-from turtle import *
+from random import shuffle
+from turtle import up, down, goto, color, begin_fill, forward, left, end_fill
+from turtle import update, ontimer, write, setup, addshape, hideturtle, tracer
+from turtle import onscreenclick, done, shape, stamp, clear
 
 from freegames import path
 
@@ -18,6 +17,8 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+global taps
+taps = 0
 
 
 def square(x, y):
@@ -54,6 +55,7 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+    tapCount()
 
 
 def draw():
@@ -79,6 +81,12 @@ def draw():
 
     update()
     ontimer(draw, 100)
+
+
+def tapCount():
+    global taps
+    taps += 1
+    print(taps)
 
 
 shuffle(tiles)
