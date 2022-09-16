@@ -1,10 +1,10 @@
 # Evidencia
 ## <span style="color: rgb(26, 99, 169);">José Ricardo Rosales Castañeda - Pacman</span>
-Para este juego de pacman se pedia que cambiaramos o modificaramos 2 cosas, cambiar el tablero y aumentar la velocidad del movimiento de los fantasmas.
+For this pacman game we were asked to change or modify 2 things, change the board and increase the speed of the ghosts' movement.
 
-**Tablero:**
+**Board:**
 
-El tablero del codigo original estaba formado por una liste llamada tiles, formada por 0 y 1, en donde el 0 represetaba las paredes y los 1 representaban el camino por el cual se pueden maver loas fantasmas y pacman, de la siguiente manera:
+The board of the original code was formed by a list called tiles, formed by 0 and 1, where the 0 represented the walls and the 1 represented the path by which the ghosts and pacman can be move, as follows:
 ```
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -29,7 +29,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 ```
-Por lo que ya modificado por mi, quedo de la siguiente forma:
+Modified:
 ```
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -55,9 +55,9 @@ tiles = [
 ]
 ```
 
-**Velocidad de los fantasmas:**
+**Ghost speed:**
 
-Para la velocidad de los fantasmas tenia que modificar 2 cosas, la velocidad inicial con la que aparecen y la velocidad que tienen despues de colisionar con alguna de las paredes y cambiar de direccion, siendo el original:
+For the speed of the ghosts I had to modify 2 things, the initial speed with which they appear and the speed they have after colliding with one of the walls and changing direction, being the original:
 ```
 # Velocidad incial
 ghosts = [
@@ -86,9 +86,9 @@ for point, course in ghosts:
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
 ```
-Modificado:
+Modified:
 ```
-# Velocidad inicial
+# Initial speed
 ghosts = [
     [vector(-180, 160), vector(10, 0)],
     [vector(-180, -160), vector(0, 10)],
@@ -96,7 +96,7 @@ ghosts = [
     [vector(100, -160), vector(-10, 0)],
 ]
 
-# Despues de colision
+# After collide
 for point, course in ghosts:
         if valid(point + course):
             point.move(course)
@@ -116,12 +116,12 @@ for point, course in ghosts:
         dot(20, 'red')
 ```
 
-Adicionalmente modifque tambien la posicion del marcador de score, ya que despues de cambiar el mapa, quedaba subrepuesto.
+Additionally, I also modified the position of the score marker, since after changing the map, it was superimposed.
 ```
 # Original
 writer.goto(160, 160)
 
-# Modificada
+# Modified
 writer.goto(185, 185)
 ```
 **TicTackToe**
