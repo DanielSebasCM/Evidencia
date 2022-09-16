@@ -12,9 +12,9 @@ from turtle import *
 
 from freegames import line
 
-SIZE = 100
+SIZE = 100  # Size of the player idon in pixe
 
-board = [False for i in range(9)]
+board = [False for i in range(9)]  # Array for detecting already used spaces
 
 
 def grid():
@@ -27,7 +27,7 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    diff = 133 - SIZE #Diferencia entre el tamaño de la cuadrícula y el icono
+    diff = 133 - SIZE  # Diferencia entre el tamaño de la cuadrícula y el icono
     line(x+diff, y+diff, x + SIZE, y + SIZE)
     line(x+diff, y + SIZE, x + SIZE, y+diff)
 
@@ -55,8 +55,10 @@ def tap(x, y):
     x = floor(x)
     y = floor(y)
 
+    # Finds the index corresponding to the square clicked
     index = int((x+200)//133 + (abs(y-66))//133*3)
 
+    # Checks if its already used
     if not board[index]:
         board[index] = True
         player = state['player']
@@ -66,10 +68,15 @@ def tap(x, y):
         state['player'] = not player
 
 
+# Creates window
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
+
+# Draws grid
 grid()
 update()
+
+# Detects user interaction
 onscreenclick(tap)
 done()
