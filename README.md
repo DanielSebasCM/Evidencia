@@ -131,18 +131,39 @@ Using turtle and freegames a simple version of tick tack toe was implemented. Ea
 Modifications:
 
 ```
+SIZE = 100
+
+board = [False for i in range(9)]
+
 def drawx(x, y):
     """Draw X player."""
-    **diff = 133 - SIZE #Diferencia entre el tamaño de la cuadrícula y el icono
+    diff = 133 - SIZE #Diferencia entre el tamaño de la cuadrícula y el icono
     line(x+diff, y+diff, x + SIZE, y + SIZE)
-    line(x+diff, y + SIZE, x + SIZE, y+diff)**
+    line(x+diff, y + SIZE, x + SIZE, y+diff)
 
 
 def drawo(x, y):
     """Draw O player."""
-    **diff = 133 - SIZE**
+    diff = 133 - SIZE
     up()
-    **goto(x + 67, y + diff//2 + 10)**
+    goto(x + 67, y + diff//2 + 10)
     down()
-    **circle(SIZE//2 - 10)**
+    circle(SIZE//2 - 10)
+
+def tap(x, y):
+    """Draw X or O in tapped square."""
+    x = floor(x)
+    y = floor(y)
+
+    index = int((x+200)//133 + (abs(y-66))//133*3)
+
+    if not board[index]:
+        board[index] = True
+        player = state['player']
+        draw = players[player]
+        draw(x, y)
+        update()
+        state['player'] = not player
+
+
  ```
